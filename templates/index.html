@@ -15,8 +15,7 @@
         <input type="text" name="location" id="location"> 
         <label for="description">Description</label>
         <input type="text" name="description" id="description">  
-        <input type="hidden" name="recur" value="0"/>
-        <input type="checkbox" id="recur" name="recur" value="1"/>
+        <input type="checkbox" id="recur" name="recur" value="False"/>
         <label for="recur">Recurring event?</label><br>
         
 
@@ -32,8 +31,6 @@
         
             {% if event.recurring %}
             <span> &#9989</span> 
-           <!-- {% else %}
-            <span> &#x2613</span> -->
     
             {% endif %}
         </p>
