@@ -1,0 +1,44 @@
+
+{% extends "base.html" %}
+
+{% block  content %}
+    <h1>All events</h1>
+
+    <form action="/addevent" method="post"> <!-- ADDED -->
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date">  
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name"> 
+        <label for="guests">Number of Guests</label>
+        <input type="text" name="guests" id="guests"> 
+        <label for="location">Location</label>
+        <input type="text" name="location" id="location"> 
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description">  
+        <input type="hidden" name="recur" value="0"/>
+        <input type="checkbox" id="recur" name="recur" value="1"/>
+        <label for="recur">Recurring event?</label><br>
+        
+
+        <input type="submit" value="Add Event">
+    </form>
+
+    {% for event in events %} 
+    <div> 
+        <p>
+            {{ event.date }} | <b>{{ event.name }}</b> |
+            {{event.number_of_guests}}  {{event.location}} |
+            {{event.description}} 
+        
+            {% if event.recurring %}
+            <span> &#9989</span> 
+           <!-- {% else %}
+            <span> &#x2613</span> -->
+    
+            {% endif %}
+        </p>
+    </div>
+
+{% endfor %}
+
+{%endblock%}
